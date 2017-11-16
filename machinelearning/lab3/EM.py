@@ -13,7 +13,7 @@ def main():
 	hardEM()
 
 def softEM( iterations = 10 ):
-	X = np.array( readFile(data[8]) )	# Chose the data file
+	X = np.array( readFile(data[6]) )	# Chose the data file
 	MU = initMu( X )
 	SIGMA = initSigma( X, MU )
 	posterior = initPosterior()
@@ -25,7 +25,7 @@ def softEM( iterations = 10 ):
 	plot( X, MU, SIGMA, currentP )
 
 def hardEM( iterations = 10 ):
-	X = np.array( readFile(data[8]) )	# Chose the data file
+	X = np.array( readFile(data[6]) )	# Chose the data file
 	MU = initMu( X )
 	SIGMA = initSigma( X, MU )
 	posterior = initPosterior()
@@ -47,7 +47,7 @@ def plot( X, MU, SIGMA, currentP ):
 	ax.add_artist(circle[0])
 	ax.add_artist(circle[1])
 
-	plt.scatter( X[:,0], X[:,1], c = currentP[1,:] )
+	plt.scatter( X[:,0], X[:,1], c = currentP[1,:], cmap = 'Spectral' )
 	plt.show()
 
 def readFile( src ):
